@@ -1,0 +1,37 @@
+{
+	"$schema": "../sdk v2/behavior.addon.schema.json",
+
+	"is-c3-addon": true,
+	"sdk-version": 2,
+	"min-construct-version": "r401",
+	"type": "behavior",
+	"name": "Bounce ball",
+	"id": "MBY_BounceBall",
+	"version": "1.0",
+	"author": "MBY alias : Yeliel Gerard",
+	"website": "https://github.com/YelielGerardK",
+	"documentation": "https://github.com/YelielGerardK",
+	"description": "Bouncing ball movement behavior.",
+	"editor-scripts": [
+						"behavior.js",
+						"type.js",
+						"instance.js"
+					],
+	"file-list": [
+		"c3runtime/main.js",
+		"c3runtime/behavior.js",
+		"c3runtime/type.js",
+		"c3runtime/instance.js",
+		"c3runtime/conditions.js",
+		"c3runtime/actions.js",
+		"c3runtime/expressions.js",
+		"lang/en-US.json",
+		"lang/fr-FR.json",
+		"aces.json",
+		"addon.json",
+		"icon.svg",
+		"instance.js",
+		"behavior.js",
+		"type.js"
+	]
+}

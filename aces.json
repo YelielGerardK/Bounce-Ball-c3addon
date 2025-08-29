@@ -1,0 +1,116 @@
+{
+	"$schema": "../sdk v2/aces.schema.json",
+	
+	"": {
+		"conditions": [
+			{
+				"id": "on-bounce",
+				"scriptName": "OnBounce",
+				"isTrigger": true
+			},
+			{
+				"id": "on-stop",
+				"scriptName": "OnStop",
+				"isTrigger": true
+			},
+			{
+				"id": "compare-bounce-count",
+				"scriptName": "CompareBounceCount",
+				"params": [
+					{ "id": "comparison", "type": "cmp" },
+					{ "id": "count", "type": "number" }
+				]
+			},
+			{
+				"id": "is-enabled",
+				"scriptName": "IsEnabled"
+			}
+		],
+		"actions": [
+			{
+				"id": "set-enabled",
+				"scriptName": "SetEnabled",
+				"params": [{ "id": "enabled", "type": "boolean" }]
+			},
+			{
+				"id": "set-velocity",
+				"scriptName": "SetVelocity",
+				"params": [
+					{ "id": "vx", "type": "number" },
+					{ "id": "vy", "type": "number" }
+				]
+			},
+			{
+				"id": "set-speed-angle",
+				"scriptName": "SetSpeedAngle",
+				"params": [
+					{ "id": "speed", "type": "number" },
+					{ "id": "angle", "type": "number" }
+				]
+			},
+			{
+				"id": "add-velocity",
+				"scriptName": "AddVelocity",
+				"params": [
+					{ "id": "ax", "type": "number" },
+					{ "id": "ay", "type": "number" }
+				]
+			},
+			{
+				"id": "set-restitution",
+				"scriptName": "SetRestitution",
+				"params": [{ "id": "restitution", "type": "number" }]
+			},
+			{
+				"id": "set-max-bounces",
+				"scriptName": "SetMaxBounces",
+				"params": [{ "id": "count", "type": "number" }]
+			},
+			{
+				"id": "reset-bounce-count",
+				"scriptName": "ResetBounceCount"
+			},
+			{
+				"id": "set-min-speed-to-stop",
+				"scriptName": "SetMinSpeedToStop",
+				"params": [{ "id": "speed", "type": "number" }]
+			},
+			{
+				"id": "set-substepping",
+				"scriptName": "SetSubstepping",
+				"params": [
+					{ "id": "maxSubsteps", "type": "number" },
+					{ "id": "maxStepDistance", "type": "number" }
+				]
+			},
+			{
+				"id": "set-separation-epsilon",
+				"scriptName": "SetSeparationEpsilon",
+				"params": [{ "id": "epsilon", "type": "number" }]
+			},
+			{
+				"id": "set-use-surface-normal",
+				"scriptName": "SetUseSurfaceNormal",
+				"params": [{ "id": "enabled", "type": "boolean" }]
+			},
+			{
+				"id": "set-constant-speed-enabled",
+				"scriptName": "SetConstantSpeedEnabled",
+				"params": [{ "id": "enabled", "type": "boolean" }]
+			},
+			{
+				"id": "set-constant-speed",
+				"scriptName": "SetConstantSpeed",
+				"params": [{ "id": "speed", "type": "number" }]
+			}
+		],
+		"expressions": [
+			{ "id": "velocityx", "expressionName": "VelocityX", "returnType": "number" },
+			{ "id": "velocityy", "expressionName": "VelocityY", "returnType": "number" },
+			{ "id": "speed", "expressionName": "Speed", "returnType": "number" },
+			{ "id": "angle", "expressionName": "Angle", "returnType": "number" },
+			{ "id": "bouncecount", "expressionName": "BounceCount", "returnType": "number" },
+			{ "id": "lastbounceaxis", "expressionName": "LastBounceAxis", "returnType": "string" }
+		]
+	}
+}

@@ -1,0 +1,191 @@
+{
+	"$schema": "../../sdk v2/behavior.lang.schema.json",
+
+	"languageTag": "en-US",
+	"fileDescription": "Strings for the 'Bounce ball' behavior.",
+	"text": {
+		"behaviors": {
+			"mby_bounceball": {
+				"name": "Bounce ball",
+				"description": "Bouncing ball movement behavior.",
+				"help-url": "https://www.construct.net",
+				"properties": {
+					"initial-speed": {
+						"name": "Initial speed",
+						"desc": "Initial speed in pixels per second."
+					},
+					"initial-angle-deg": {
+						"name": "Initial angle (deg)",
+						"desc": "Initial direction in degrees."
+					},
+					"restitution": {
+						"name": "Restitution",
+						"desc": "Bounce energy retention factor [0-1]."
+					},
+					"enabled": {
+						"name": "Enabled",
+						"desc": "Whether the behavior starts enabled."
+					},
+					"min-speed-to-stop": {
+						"name": "Min speed to stop",
+						"desc": "Stop when speed falls below this value (px/s)."
+					},
+					"max-bounces": {
+						"name": "Max bounces",
+						"desc": "Maximum number of bounces (-1 = unlimited)."
+					},
+					"max-substeps": {
+						"name": "Max substeps",
+						"desc": "Upper limit of substeps to reduce tunneling."
+					},
+					"max-step-distance": {
+						"name": "Max step distance",
+						"desc": "Max distance per substep (pixels)."
+					},
+					"separation-epsilon": {
+						"name": "Separation epsilon",
+						"desc": "Small push to avoid sticking after bounce (pixels)."
+					},
+					"use-surface-normal": {
+						"name": "Use surface normal",
+						"desc": "Reflect using the collision surface normal (supports inclined surfaces)."
+					},
+					"constant-speed-enabled": {
+						"name": "Constant speed after bounce",
+						"desc": "Maintain a constant speed after each bounce."
+					},
+					"constant-speed": {
+						"name": "Constant speed",
+						"desc": "Speed to enforce after a bounce (px/s)."
+					}
+				},
+				"aceCategories": {},
+				"conditions": {
+					"on-bounce": {
+						"list-name": "On bounce",
+						"display-text": "{my} On bounce",
+						"description": "Triggered when a bounce is resolved."
+					},
+					"on-stop": {
+						"list-name": "On stop",
+						"display-text": "{my} On stop",
+						"description": "Triggered when the behavior stops (speed too low or max bounces)."
+					},
+					"compare-bounce-count": {
+						"list-name": "Compare bounce count",
+						"display-text": "{my} bounce count {0} {1}",
+						"description": "Compare the current number of bounces.",
+						"params": {
+							"comparison": { "name": "Comparison", "desc": "The comparison to use." },
+							"count": { "name": "Count", "desc": "The count to compare to." }
+						}
+					},
+					"is-enabled": {
+						"list-name": "Is enabled",
+						"display-text": "{my} is enabled",
+						"description": "Check if the behavior is enabled."
+					}
+				},
+				"actions": {
+					"set-enabled": {
+						"list-name": "Set enabled",
+						"display-text": "Set {my} enabled [b]{0}[/b]",
+						"description": "Enable or disable the behavior.",
+						"params": { "enabled": { "name": "Enabled", "desc": "Whether to enable the behavior." } }
+					},
+					"set-velocity": {
+						"list-name": "Set velocity",
+						"display-text": "Set {my} velocity to ([i]{0}[/i], [i]{1}[/i])",
+						"description": "Set velocity in px/s.",
+						"params": {
+							"vx": { "name": "Vx", "desc": "Velocity X (px/s)." },
+							"vy": { "name": "Vy", "desc": "Velocity Y (px/s)." }
+						}
+					},
+					"set-speed-angle": {
+						"list-name": "Set speed & angle",
+						"display-text": "Set {my} speed [i]{0}[/i] at angle [i]{1}[/i] deg",
+						"description": "Set speed (px/s) and direction (deg).",
+						"params": {
+							"speed": { "name": "Speed", "desc": "Speed in px/s." },
+							"angle": { "name": "Angle (deg)", "desc": "Angle in degrees." }
+						}
+					},
+					"add-velocity": {
+						"list-name": "Add velocity",
+						"display-text": "Add ([i]{0}[/i], [i]{1}[/i]) to {my} velocity",
+						"description": "Add an impulse (px/s).",
+						"params": {
+							"ax": { "name": "dVx", "desc": "Velocity X delta (px/s)." },
+							"ay": { "name": "dVy", "desc": "Velocity Y delta (px/s)." }
+						}
+					},
+					"set-restitution": {
+						"list-name": "Set restitution",
+						"display-text": "Set {my} restitution to [i]{0}[/i]",
+						"description": "Set restitution [0-1].",
+						"params": { "restitution": { "name": "Restitution", "desc": "0 to 1." } }
+					},
+					"set-max-bounces": {
+						"list-name": "Set max bounces",
+						"display-text": "Set {my} max bounces to [i]{0}[/i]",
+						"description": "Set maximum number of bounces (-1 = unlimited).",
+						"params": { "count": { "name": "Count", "desc": "-1 = unlimited." } }
+					},
+					"reset-bounce-count": {
+						"list-name": "Reset bounce count",
+						"display-text": "Reset {my} bounce count",
+						"description": "Reset the internal bounce counter."
+					},
+					"set-min-speed-to-stop": {
+						"list-name": "Set min speed to stop",
+						"display-text": "Set {my} min speed to stop to [i]{0}[/i]",
+						"description": "Stop when speed falls below this value.",
+						"params": { "speed": { "name": "Speed", "desc": "Speed in px/s." } }
+					},
+					"set-substepping": {
+						"list-name": "Set substepping",
+						"display-text": "Set {my} substepping to steps [i]{0}[/i], max step [i]{1}[/i] px",
+						"description": "Configure substepping.",
+						"params": {
+							"maxSubsteps": { "name": "Max substeps", "desc": "Upper limit of substeps." },
+							"maxStepDistance": { "name": "Max step distance", "desc": "Pixels per substep." }
+						}
+					},
+					"set-separation-epsilon": {
+						"list-name": "Set separation epsilon",
+						"display-text": "Set {my} separation epsilon to [i]{0}[/i] px",
+						"description": "Small push to avoid sticking after bounce.",
+						"params": { "epsilon": { "name": "Epsilon", "desc": "Pixels." } }
+					},
+					"set-use-surface-normal": {
+						"list-name": "Use surface normal",
+						"display-text": "Set {my} use surface normal [b]{0}[/b]",
+						"description": "Reflect using collision surface normal (supports inclined surfaces).",
+						"params": { "enabled": { "name": "Enabled", "desc": "Enable or disable normal-based reflection." } }
+					},
+					"set-constant-speed-enabled": {
+						"list-name": "Constant speed after bounce",
+						"display-text": "Set {my} constant bounce speed enabled [b]{0}[/b]",
+						"description": "Maintain a constant speed after each bounce.",
+						"params": { "enabled": { "name": "Enabled", "desc": "Enable or disable constant speed after bounce." } }
+					},
+					"set-constant-speed": {
+						"list-name": "Set constant speed",
+						"display-text": "Set {my} constant speed to [i]{0}[/i] px/s",
+						"description": "Speed to enforce after a bounce.",
+						"params": { "speed": { "name": "Speed", "desc": "Pixels per second." } }
+					}
+				},
+				"expressions": {
+					"velocityx": { "description": "Current X velocity (px/s).", "translated-name": "VelocityX" },
+					"velocityy": { "description": "Current Y velocity (px/s).", "translated-name": "VelocityY" },
+					"speed": { "description": "Current speed (px/s).", "translated-name": "Speed" },
+					"angle": { "description": "Current angle (degrees).", "translated-name": "Angle" },
+					"bouncecount": { "description": "Current bounce count.", "translated-name": "BounceCount" },
+					"lastbounceaxis": { "description": "Axis of last bounce (x, y, or xy).", "translated-name": "LastBounceAxis" }
+				}
+			}
+		}
+	}
+}

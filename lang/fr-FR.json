@@ -1,0 +1,191 @@
+{
+	"$schema": "../../sdk v2/behavior.lang.schema.json",
+
+	"languageTag": "fr-FR",
+	"fileDescription": "Chaînes pour le comportement 'Balle rebondissante'.",
+	"text": {
+		"behaviors": {
+			"mby_bounceball": {
+				"name": "Balle rebondissante",
+				"description": "Comportement de mouvement de balle rebondissante.",
+				"help-url": "https://www.construct.net",
+				"properties": {
+					"initial-speed": {
+						"name": "Vitesse initiale",
+						"desc": "Vitesse initiale en pixels par seconde."
+					},
+					"initial-angle-deg": {
+						"name": "Angle initial (deg)",
+						"desc": "Direction initiale en degrés."
+					},
+					"restitution": {
+						"name": "Restitution",
+						"desc": "Facteur de conservation d'énergie du rebond [0–1]."
+					},
+					"enabled": {
+						"name": "Activé",
+						"desc": "Si le comportement démarre activé."
+					},
+					"min-speed-to-stop": {
+						"name": "Vitesse min pour s'arrêter",
+						"desc": "S'arrête quand la vitesse passe sous cette valeur (px/s)."
+					},
+					"max-bounces": {
+						"name": "Rebonds max",
+						"desc": "Nombre maximal de rebonds (-1 = illimité)."
+					},
+					"max-substeps": {
+						"name": "Sous-pas max",
+						"desc": "Limite supérieure de sous-pas pour réduire le tunneling."
+					},
+					"max-step-distance": {
+						"name": "Distance max par sous-pas",
+						"desc": "Distance maximale par sous-pas (pixels)."
+					},
+					"separation-epsilon": {
+						"name": "Épsilon de séparation",
+						"desc": "Petit décalage pour éviter l'adhérence après le rebond (pixels)."
+					},
+					"use-surface-normal": {
+						"name": "Utiliser la normale de surface",
+						"desc": "Réfléchir à l'aide de la normale de collision (supporte les surfaces inclinées)."
+					},
+					"constant-speed-enabled": {
+						"name": "Vitesse constante après rebond",
+						"desc": "Maintenir une vitesse constante après chaque rebond."
+					},
+					"constant-speed": {
+						"name": "Vitesse constante",
+						"desc": "Vitesse à appliquer après un rebond (px/s)."
+					}
+				},
+				"aceCategories": {},
+				"conditions": {
+					"on-bounce": {
+						"list-name": "Au rebond",
+						"display-text": "{my} Au rebond",
+						"description": "Déclenché lorsqu'un rebond est résolu."
+					},
+					"on-stop": {
+						"list-name": "À l'arrêt",
+						"display-text": "{my} À l'arrêt",
+						"description": "Déclenché lorsque le comportement s'arrête (vitesse trop faible ou nombre de rebonds atteint)."
+					},
+					"compare-bounce-count": {
+						"list-name": "Comparer le nombre de rebonds",
+						"display-text": "{my} nombre de rebonds {0} {1}",
+						"description": "Comparer le nombre de rebonds actuel.",
+						"params": {
+							"comparison": { "name": "Comparaison", "desc": "La comparaison à utiliser." },
+							"count": { "name": "Valeur", "desc": "La valeur à comparer." }
+						}
+					},
+					"is-enabled": {
+						"list-name": "Est activé",
+						"display-text": "{my} est activé",
+						"description": "Vérifie si le comportement est activé."
+					}
+				},
+				"actions": {
+					"set-enabled": {
+						"list-name": "Définir activé",
+						"display-text": "Définir {my} activé [b]{0}[/b]",
+						"description": "Activer ou désactiver le comportement.",
+						"params": { "enabled": { "name": "Activé", "desc": "Activer le comportement ou non." } }
+					},
+					"set-velocity": {
+						"list-name": "Définir la vitesse",
+						"display-text": "Définir la vitesse de {my} à ([i]{0}[/i], [i]{1}[/i])",
+						"description": "Définir la vitesse en px/s.",
+						"params": {
+							"vx": { "name": "Vx", "desc": "Vitesse X (px/s)." },
+							"vy": { "name": "Vy", "desc": "Vitesse Y (px/s)." }
+						}
+					},
+					"set-speed-angle": {
+						"list-name": "Définir vitesse & angle",
+						"display-text": "Définir la vitesse de {my} à [i]{0}[/i] avec un angle de [i]{1}[/i] deg",
+						"description": "Définir la vitesse (px/s) et la direction (deg).",
+						"params": {
+							"speed": { "name": "Vitesse", "desc": "Vitesse en px/s." },
+							"angle": { "name": "Angle (deg)", "desc": "Angle en degrés." }
+						}
+					},
+					"add-velocity": {
+						"list-name": "Ajouter à la vitesse",
+						"display-text": "Ajouter ([i]{0}[/i], [i]{1}[/i]) à la vitesse de {my}",
+						"description": "Ajouter une impulsion (px/s).",
+						"params": {
+							"ax": { "name": "dVx", "desc": "Variation de vitesse X (px/s)." },
+							"ay": { "name": "dVy", "desc": "Variation de vitesse Y (px/s)." }
+						}
+					},
+					"set-restitution": {
+						"list-name": "Définir la restitution",
+						"display-text": "Définir la restitution de {my} à [i]{0}[/i]",
+						"description": "Définir la restitution [0–1].",
+						"params": { "restitution": { "name": "Restitution", "desc": "0 à 1." } }
+					},
+					"set-max-bounces": {
+						"list-name": "Définir les rebonds max",
+						"display-text": "Définir les rebonds max de {my} à [i]{0}[/i]",
+						"description": "Définir le nombre maximal de rebonds (-1 = illimité).",
+						"params": { "count": { "name": "Nombre", "desc": "-1 = illimité." } }
+					},
+					"reset-bounce-count": {
+						"list-name": "Réinitialiser le nombre de rebonds",
+						"display-text": "Réinitialiser le nombre de rebonds de {my}",
+						"description": "Réinitialiser le compteur interne de rebonds."
+					},
+					"set-min-speed-to-stop": {
+						"list-name": "Définir la vitesse min d'arrêt",
+						"display-text": "Définir la vitesse min d'arrêt de {my} à [i]{0}[/i]",
+						"description": "S'arrête quand la vitesse passe sous cette valeur.",
+						"params": { "speed": { "name": "Vitesse", "desc": "Vitesse en px/s." } }
+					},
+					"set-substepping": {
+						"list-name": "Définir les sous-pas",
+						"display-text": "Définir les sous-pas de {my} à [i]{0}[/i] étapes, distance max [i]{1}[/i] px",
+						"description": "Configurer les sous-pas.",
+						"params": {
+							"maxSubsteps": { "name": "Sous-pas max", "desc": "Limite supérieure de sous-pas." },
+							"maxStepDistance": { "name": "Distance max par sous-pas", "desc": "Pixels par sous-pas." }
+						}
+					},
+					"set-separation-epsilon": {
+						"list-name": "Définir l'épsilon de séparation",
+						"display-text": "Définir l'épsilon de séparation de {my} à [i]{0}[/i] px",
+						"description": "Petit décalage pour éviter l'adhérence après le rebond.",
+						"params": { "epsilon": { "name": "Épsilon", "desc": "Pixels." } }
+					},
+					"set-use-surface-normal": {
+						"list-name": "Utiliser la normale de surface",
+						"display-text": "Définir l'utilisation de la normale de surface pour {my} [b]{0}[/b]",
+						"description": "Réflexion selon la normale de collision (supporte les surfaces inclinées).",
+						"params": { "enabled": { "name": "Activé", "desc": "Activer ou désactiver la réflexion par normale." } }
+					},
+					"set-constant-speed-enabled": {
+						"list-name": "Vitesse constante après rebond",
+						"display-text": "Définir la vitesse constante après rebond pour {my} [b]{0}[/b]",
+						"description": "Maintenir une vitesse constante après chaque rebond.",
+						"params": { "enabled": { "name": "Activé", "desc": "Activer ou désactiver la vitesse constante après rebond." } }
+					},
+					"set-constant-speed": {
+						"list-name": "Définir la vitesse constante",
+						"display-text": "Définir la vitesse constante de {my} à [i]{0}[/i] px/s",
+						"description": "Vitesse appliquée après un rebond.",
+						"params": { "speed": { "name": "Vitesse", "desc": "Pixels par seconde." } }
+					}
+				},
+				"expressions": {
+					"velocityx": { "description": "Vitesse X actuelle (px/s).", "translated-name": "VelocityX" },
+					"velocityy": { "description": "Vitesse Y actuelle (px/s).", "translated-name": "VelocityY" },
+					"speed": { "description": "Vitesse actuelle (px/s).", "translated-name": "Speed" },
+					"angle": { "description": "Angle actuel (degrés).", "translated-name": "Angle" },
+					"bouncecount": { "description": "Nombre de rebonds actuel.", "translated-name": "BounceCount" },
+					"lastbounceaxis": { "description": "Axe du dernier rebond (x, y ou xy).", "translated-name": "LastBounceAxis" }
+				}
+			}
+		}
+	}
+}
